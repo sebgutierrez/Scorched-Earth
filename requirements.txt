@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+ipykernel
+matplotlib
+scikit-learn
+seaborn
+numpy
+pandas
+tensorflow
