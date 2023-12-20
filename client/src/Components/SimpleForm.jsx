@@ -17,7 +17,6 @@ const LocationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form data submitted:', formData);
-    // You can add further logic, such as sending the data to a server
   };
 
   return (
