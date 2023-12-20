@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import SimpleForm from './Components/SimpleForm';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         ? ( <h1>Loading...</h1> ) 
         : ( <h1>{data.message}</h1> ) 
         } 
+        <SimpleForm></SimpleForm>
       
     </div>
   );
