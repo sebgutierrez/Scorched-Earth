@@ -1,0 +1,16 @@
+this is pretty basic to run:
+
+1) cd into the client directory
+2) in terminal type: `npm run dev`
+
+*Note if this does not work run `npm install`
+and then run `npm run dev`*
+
+3) CTRL-click the localhost/port link to open in browser
+
+For the form I used some basic bootstrap 
+to make styling the elements easier.
+bootstrap should already be downloaded 
+to the node_modules directory but if you run into any errors,
+cd into client and type `npm install bootstrap`
+
