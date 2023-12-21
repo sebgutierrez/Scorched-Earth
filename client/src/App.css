@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  display: block;
+  width: 100%;
+  background-color: blue;
+}
+
+.map-container {
+  display: relative;
+  width: 100%;
+  background-color: red;
+}
