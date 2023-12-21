@@ -5,6 +5,7 @@ const LocationForm = () => {
     latitude: '',
     longiture: '',
     years: '',
+    ssp: '',
   });
 
   const handleInputChange = (e) => {
@@ -21,18 +22,18 @@ const LocationForm = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Parameters</h2>
+      <h2 className="form-heading">Parameters</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="laditude" className="form-label">
-            Laditude:
+          <label htmlFor="latitude" className="form-label">
+            Latitude:
           </label>
           <input
             type="text"
             className="form-control"
-            id="laditude"
-            name="laditude"
-            value={formData.laditude}
+            id="latitude"
+            name="latitude"
+            value={formData.latitude}
             onChange={handleInputChange}
           />
         </div>
@@ -51,7 +52,7 @@ const LocationForm = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="years" className="form-label">
-            Years:
+            Target Year (2023 - 2100):
           </label>
           <input
             type="text"
@@ -61,6 +62,24 @@ const LocationForm = () => {
             value={formData.years}
             onChange={handleInputChange}
           />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="ssp" className="form-label">
+            Shared Socioeconomic Pathway (SSP):
+          </label>
+          <select
+            type="text"
+            className="form-control"
+            id="ssp"
+            name="ssp"
+            value={formData.ssp}
+            onChange={handleInputChange}
+          >
+            <option value="SSP126">SSP1-2.6</option>
+            <option value="SSP245">SSP2-4.5</option>
+            <option value="SSP460">SSP4-6.0</option>
+            <option value="SSP585">SSP5-8.5</option>
+          </select>
         </div>
         <button type="submit" className="btn btn-primary">
           Submit

@@ -1,36 +1,9 @@
 #root {
   margin: 0;
   padding: 0;
+  margin: 0;
+  padding: 0;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
@@ -41,22 +14,91 @@
   color: #888;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: static;
+  top: 0;
+  padding: 0.5rem 0 0.5rem 0.25rem;
+  height: 8vh;
+  width: 100%;
+  background-color: #306BF3;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+}
 
-.container-box {
+.logo { 
+  display: flex;
+  position: relative;
+  width: 100%;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  padding: 0 0 0 1rem;
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  border-radius: 4rem;
+  padding: 1rem 2rem 0 0;
+}
+
+
+.menu-item-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.menu-item-container a{
+  text-decoration: none;
+}
+
+.menu-item-container:hover {
+  border-radius: 5rem;
+}
+
+.menu-item{
+  display: flex;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.map-form-container {
+  position: relative;
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 92vh;
+}
+
+.form-heading {
+  padding: 0 0 1rem 0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   width: 35vw;
-  border: 1px solid green;
 }
 
 .map-container {
   display: flex;
   width: 100%;
-  border: 1px solid red;
+  background-color: lightgrey;
 }
