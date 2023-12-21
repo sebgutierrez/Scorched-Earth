@@ -7,7 +7,6 @@ import Map from './Components/Map';
 import './App.css';
 
 function App() {
-
   return (
     <Fragment> 
       <div className="main-container">
