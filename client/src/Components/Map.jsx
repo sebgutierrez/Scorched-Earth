@@ -10,6 +10,7 @@ const Map = () => {
     googleMapsApiKey: import.meta.env.VITE_API_KEY,
   });
   
+  
   const handleMapLoad = useCallback((map) => {
 	setMap(map);
   
