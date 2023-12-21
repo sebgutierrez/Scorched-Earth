@@ -4,7 +4,6 @@ const navigationBar = () => {
 	return (
 		<Fragment>
 			<div className="header">
-		
 					<span className="logo">Scorched Earth</span>
 					<nav className="navbar">
 						<ul className="nav-list">
@@ -19,7 +18,6 @@ const navigationBar = () => {
 							</li>
 						</ul>
 					</nav>
-			
 			</div>
 		</Fragment>
 	  );

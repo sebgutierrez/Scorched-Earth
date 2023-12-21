@@ -4,7 +4,6 @@ import './App.css';
 import Navigation from './Components/Navigation';
 import SimpleForm from './Components/SimpleForm';
 import Map from './Components/Map';
-
 import './App.css';
 
 function App() {
