@@ -1,10 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import {defineConfig, loadEnv} from 'vite';
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  optimizeDeps: {
-    exclude: ['@react-google-maps']
-  }
-})
+export default defineConfig(({mode}) => {
+  const {GOOGLE_MAPS_API_KEY = ''} = loadEnv(mode, process.cwd(), '');
+  return {
+    define: {
+      'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(GOOGLE_MAPS_API_KEY)
+    }
+  };
+});

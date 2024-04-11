@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import './App.css';
 import Navigation from './Components/Navigation';
 import SimpleForm from './Components/SimpleForm';
-import Map from './Components/Map';
+import GoogleMap from './Components/GoogleMap';
 import './App.css';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <div className="map-form-container">
           <SimpleForm></SimpleForm>
           <div className="map-container">
-            <Map></Map>
+            <GoogleMap></GoogleMap>
           </div>
         </div>
       </div>
