@@ -8,13 +8,13 @@ const navigationBar = () => {
 					<nav className="navbar">
 						<ul className="nav-list">
 							<li className="menu-item-container">
-								<a href="#" className="menu-item">Map</a>
+								<a href="#" className="menu-item">Home</a>
 							</li>
 							<li className="menu-item-container">
 								<a href="#" className="menu-item">About</a>
 							</li>
 							<li className="menu-item-container">  
-								<a href="#" className="menu-item">Documentation</a>
+								<a href="#" className="menu-item">Team</a>
 							</li>
 						</ul>
 					</nav>
