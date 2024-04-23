@@ -4,14 +4,14 @@ import React, { Fragment } from 'react';
 import '../../App.css';
 import '../Forecast/Forecast.css';
 
-import Navigation from '../../components/Navbar/Navigation';
+import Header from '../../components/Header/Header';
 import SimpleForm from '../../components/ForecastForm/SimpleForm';
 import GoogleMap from '../../components/Map/GoogleMap';
 
 function Forecast() {
   return (
     <Fragment> 
-        <Navigation></Navigation>
+        <Header></Header>
         <div className="map-form-container">
           <SimpleForm></SimpleForm>
           <div className="map-container">
