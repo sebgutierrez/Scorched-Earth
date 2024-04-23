@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react'
+import '../../App.css';
+import '../Navbar/Navigation.css';
 
-const navigationBar = () => {
+const Navigation = () => {
 	return (
 		<Fragment>
 			<div className="header">
@@ -23,4 +25,4 @@ const navigationBar = () => {
 	  );
 };
 
-export default navigationBar;
+export default Navigation;

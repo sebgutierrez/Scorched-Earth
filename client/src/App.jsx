@@ -1,25 +1,37 @@
 "use client";
-import React, { Fragment } from 'react';
+import React from 'react';
 import './App.css';
 
-import Navigation from './components/Navigation';
-import SimpleForm from './components/SimpleForm';
-import GoogleMap from './components/GoogleMap';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Forecast from './pages/Forecast/Forecast.jsx';
+// import Home from './pages/Home/Home.jsx';
+// import Team from './pages/Team/Team.jsx';
+// import About from './pages/About/About.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Forecast />,
+  },
+/*  
+  {
+    path: '/forecast',
+    element: <Forecast />,
+  },
+  {
+    path: '/team',
+    element: <Team />,
+  },
+  {
+    path: '/about',
+    element: <About />,
+  }
+*/
+]);
 
 function App() {
-  
-  return (
-    <Fragment> 
-      <div className="main-container">
-        <Navigation></Navigation>
-        <div className="map-form-container">
-          <SimpleForm></SimpleForm>
-          <div className="map-container">
-            <GoogleMap></GoogleMap>
-          </div>
-        </div>
-      </div>
-    </Fragment>
+  return ( 
+    <RouterProvider router={router} />
   );
 }
 

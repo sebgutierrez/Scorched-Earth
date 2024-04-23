@@ -1,0 +1,12 @@
+.map-form-container {
+	position: relative;
+	display: flex; 
+	width: 100vw;
+	height: 92vh;
+}
+
+.map-container {
+	display: flex;
+	width: 100%;
+	background-color: lightgrey;
+}
