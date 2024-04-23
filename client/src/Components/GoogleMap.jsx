@@ -2,8 +2,8 @@ import React, {useEffect} from "react";
 import {APIProvider, Map, AdvancedMarker, Pin, useApiIsLoaded} from '@vis.gl/react-google-maps';
 
 const API_KEY =
-	globalThis.GOOGLE_MAPS_API_KEY ?? (process.env.GOOGLE_MAPS_API_KEY);
-	
+	globalThis.GOOGLE_MAPS_API_KEY ?? (import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
+
 const GoogleMap = () => {
 	
 	const apiIsLoaded = useApiIsLoaded();
@@ -11,8 +11,7 @@ const GoogleMap = () => {
 	useEffect(() => {
 		if (!apiIsLoaded) return;
 
-		// when the maps library is loaded, apiIsLoaded will be true and the API can be
-		// accessed using the global `google.maps` namespace.
+		// when the maps library is loaded, apiIsLoaded will be true and the API can be accessed using the global `google.maps` namespace.
 	}, [apiIsLoaded]);
 	
 
@@ -25,7 +24,7 @@ const GoogleMap = () => {
 			<Map 
 				mapId={'bf51a910020fa25a'}
 				center={position} 
-				zoom={7}
+				zoom={9}
 				gestureHandling={'greedy'}
 				disableDefaultUI={true}
 			>

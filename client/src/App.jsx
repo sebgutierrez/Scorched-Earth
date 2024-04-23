@@ -1,10 +1,10 @@
 "use client";
 import React, { Fragment } from 'react';
 import './App.css';
-import Navigation from './Components/Navigation';
-import SimpleForm from './Components/SimpleForm';
-import GoogleMap from './Components/GoogleMap';
-import './App.css';
+
+import Navigation from './components/Navigation';
+import SimpleForm from './components/SimpleForm';
+import GoogleMap from './components/GoogleMap';
 
 function App() {
   
