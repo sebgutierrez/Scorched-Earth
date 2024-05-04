@@ -9,6 +9,7 @@ import SimpleForm from '../../components/ForecastForm/SimpleForm';
 import GoogleMap from '../../components/Map/GoogleMap';
 
 function Forecast() {
+  // test commit
   return (
     <Fragment> 
         <Header></Header>
