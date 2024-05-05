@@ -4,14 +4,14 @@ import './App.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Forecast from './pages/Forecast/Forecast.jsx';
-// import Home from './pages/Home/Home.jsx';
+import Home from './pages/Home/Home.jsx';
 // import Team from './pages/Team/Team.jsx';
 // import About from './pages/About/About.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Forecast />,
+    element: <Home />,
   },
 /*  
   {
