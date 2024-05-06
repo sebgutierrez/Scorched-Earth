@@ -14,7 +14,7 @@ function Home(){
                 </div>
                 <div className="project-content">
                     <h2>Weather Wizard</h2>
-                    <img src="/client/src/assets/cloud.jpg" alt="cloud" />
+                    <img src="./src/assets/cloud.jpg" alt="cloud" />
                 </div>
                 <div className="project-nav">
                     <ul>
