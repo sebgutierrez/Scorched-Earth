@@ -1,6 +1,8 @@
 /* WeatherWizard.css */
 
 .weather-wizard-container {
+  width: 100%;
+  min-height: 92vh;
   background: linear-gradient(to bottom, #4b0082, #e6e6fa);
   padding: 20px;
   text-align: center;
