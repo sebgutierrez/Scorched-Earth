@@ -10,18 +10,18 @@ function Home(){
         <Fragment>
             <div className="cover-content">
                 <div className="team-name-container">
-                    <h1>Team 8</h1>
+                    <h1 className="team-name">Weather Wizards</h1>
                 </div>
                 <div className="project-content">
-                    <h2>Weather Wizard</h2>
-                    <img src="./src/assets/cloud.jpg" alt="cloud" />
+                    <h2>Scorched Earth</h2>
+                    <img src="./src/assets/cloud.svg" alt="cloud" />
                 </div>
                 <div className="project-nav">
                     <ul>
                         <li><Link to="/">HOME</Link></li>
-                        <li><Link to="about">ABOUT</Link></li>
-                        <li><Link to="contact">CONTACT</Link></li>
-                        <li><Link to="app">APP</Link></li>
+                        <li><Link to="/forecast">FORECAST</Link></li>
+                        <li><Link to="/about">ABOUT</Link></li>
+                        <li><Link to="/team">TEAM</Link></li>
                     </ul>
                 </div>
             </div>

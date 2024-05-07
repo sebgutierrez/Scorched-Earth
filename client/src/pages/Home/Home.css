@@ -10,38 +10,44 @@
 
 .team-name-container{
     position: absolute;
-    width: 200px;
-    height: 50px;
-    left: 117px;
-    top: 53px;
-    padding: 10px;
-    margin: 10px;
+    /* width: 200px;
+    height: 50px; */
+    width: fit-content;
+    height: fit-content;
+    left: 5rem;
+    top: 4.25rem;
+    padding: 0.625rem;
+    margin: 0.625rem;
     background: linear-gradient(258.95deg, #FDC500 -41.92%, #FD8900 74.65%);
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 10px;
+    font-size: 0.625rem;
     color: #FFFFFF;
     /* line-height: 44px; */
 
     border: solid #FDC500 1px;
-    border-radius: 25px;
+    border-radius: 1.563rem;
+}
+
+.team-name {
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 }
 
 .project-content{
     position: absolute;
     display: flex;
-    width: 784px;
-    height: 290px;
-    left: 79px;
-    top: 165px;
+    width: 49rem;
+    height: 18.125rem;
+    left: 4.938rem;
+    top: 10.313rem;
     
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 170px;
-    line-height: 145px;
+    font-size: 10.625rem;
+    line-height: 9.063rem;
     /* or 85% */
     letter-spacing: -0.03em;
     
@@ -49,19 +55,21 @@
 }
 
 .project-content img{
-    position: absolute;
-    width: 586px;
-    height: 500px;
-    left: 836px;
+    position: relative;
+    width: 36.625rem;
+    height: 31.25rem;
+    bottom: 4rem;
+    left: 1rem;
+    /* left: 836px; */
     /* top: 75px; */
 }
 
 .project-nav{
     position: absolute;
-    width: 1266px;
+    width: 79.125rem;
     height: 180px;
-    left: 61px;
-    top: 474px;
+    left: 3.813rem;
+    top: 29.625rem;
 }
 
 .project-nav ul{
@@ -72,17 +80,18 @@
 }
 
 .project-nav ul li{
-    margin: 20px;
-    padding: 20px;
+    margin: 1.25rem;
+    /* padding: 20px; */
+    padding: 0.25rem 1.5rem 0.25rem 1.5rem;
     border: solid #FDC500 1px;
     background: linear-gradient(258.95deg, #FDC500 -41.92%, #FD8900 74.65%);
-    border-radius: 25.0556px;
+    border-radius: 1.566rem;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
-    line-height: 85px;
+    font-size: 3rem;
+    line-height: 5.313rem;
     align-items: center;
     text-align: center;
     color: #FFFFFF;
@@ -90,37 +99,37 @@
 
 @media only screen and (max-width: 600px) {
     .project-content{
-        width: 200px;
-        font-size: 75px;
+        width: 12.5rem;
+        font-size: 4.688rem;
     }
     .project-content img{
         visibility: hidden;
     }
     .project-nav{
-        width: 200px;
+        width: 12.5rem;
     }
     .project-nav ul{
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        width: 200px;
+        width: 12.5rem;
     }
     .project-nav ul li {
-        font-size: 40px;
-        width: 250px;
+        font-size: 2.5rem;
+        width: 15.625rem;
     }
     .project-nav ul li a{
-        width: 100px;
-        font-size: 35px;
+        width: 6.25rem;
+        font-size: 2.188rem;
     }
     .team-name-container{
-        left: 10px;
-        width: 100px;
+        left: 0.625rem;
+        width: 6.25rem;
     }
     .team-name-container h1{
-        font-size: 20px;
-        padding-top: 3px;
-        padding-bottom: 5px;
+        font-size: 1.25rem;
+        padding-top: 0.188rem;
+        padding-bottom: 0.313rem;
     }
 
 }
