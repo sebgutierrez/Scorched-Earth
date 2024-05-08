@@ -6,49 +6,64 @@ const Team = () => {
 
 const TeamMembers1 = [
     {
+        id: 1,
         name: "Syeda",
         year: "Sophomore",
-        contribution: "(Team Page)",
+        contribution: "React developer",
         profileLink: "https://www.linkedin.com/in/syeda-wasiq-3a2160b4",
-        image: ""
+        image: "/default-profile-icon.png"
     },{
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: ""
+        id: 2,
+        name: "Sebastian Gutierrez",
+        year: "Senior",
+        contribution: "Team Lead. React, Google Maps API, and Machine Learning developer",
+        profileLink: "https://www.linkedin.com/in/sebastian-gutierrez-363130216/",
+        image: "/default-profile-icon.png"
     },{
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: ""
+        id: 3,
+        name: "Nathan Tran",
+        year: "Junior",
+        contribution: "React developer",
+        profileLink: "https://www.linkedin.com/in/nathan-tran-190866265/",
+        image: "/default-profile-icon.png"
     },{
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: ""
+        id: 4,
+        name: "Dinh Bui",
+        year: "Senior",
+        contribution: "React and Google Maps API developer",
+        profileLink: "https://www.linkedin.com/in/dbui02/",
+        image: "/default-profile-icon.png"
     },
 ]
 const TeamMembers2 = [
     {
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: ""
+        id: 5,
+        name: "Chris Oosthuizen",
+        year: "Junior",
+        contribution: "Team Lead. Machine Learning developer",
+        profileLink: "",
+        image: "/default-profile-icon.png"
     },{
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: ""
+        id: 6,
+        name: "Parsa Motahar",
+        year: "Junior",
+        contribution: "React developer",
+        profileLink: "",
+        image: "/default-profile-icon.png"
     },{
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: ""
+        id: 7,
+        name: "Chase",
+        year: "Junior",
+        contribution: "UI designer",
+        profileLink: "",
+        image: "/default-profile-icon.png"
     },{
+        id: 8,
         name: "Syeda",
         year: "Sophomore",
         contribution: "(Team Page)",
-        profileLink: ""
+        profileLink: "https://www.linkedin.com/in/syeda-wasiq-3a2160b4",
+        image: "/default-profile-icon.png"
     },
 ]
 
@@ -57,21 +72,21 @@ const TeamMembers2 = [
     {/* // <div className="h-full"> */}
 
     <Header></Header>
-    <div className="cards-container">
-            <div className="flex justify-center my-8 text-slate-600">
-                <h1>Our Team</h1>
+    <div className="cards-container bg-white px-12">
+            <div className="flex justify-center mt-6">
+                <h1 className="font-bold text-black">The Weather Wizards</h1>
             </div>
             <div className="card-container">
             {
                 TeamMembers1.map((member) => (
-                    <Card className="" data={member}></Card>
+                    <Card className="" data={member} key={member.id}></Card>
                     ))
             }
             </div>
             <div className="card-container">
              {
                 TeamMembers2.map((member) => (
-                    <Card className="" data={member}></Card>
+                    <Card className="" data={member} key={member.id}></Card>
                     ))
             }
             </div>
