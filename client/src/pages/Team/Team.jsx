@@ -73,8 +73,8 @@ const TeamMembers2 = [
 
     <Header></Header>
     <div className="cards-container bg-white px-12">
-            <div className="flex justify-center mt-6">
-                <h1 className="font-bold text-black">The Weather Wizards</h1>
+            <div className="flex justify-center my-8">
+                <h1 className="font-bold mt-6 text-black">The Weather Wizards</h1>
             </div>
             <div className="card-container">
             {
