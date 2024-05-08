@@ -1,7 +1,6 @@
 "use client";
 import React, { Fragment } from 'react';
 
-import '../../App.css';
 import '../Home/Home.css';
 import { Link } from "react-router-dom";
 
