@@ -13,7 +13,6 @@ const router = createBrowserRouter([
     path: '/',
     element: <Home />,
   },
- 
   {
     path: '/forecast',
     element: <Forecast />,
@@ -22,12 +21,10 @@ const router = createBrowserRouter([
     path: '/team',
     element: <Team />,
   },
-
   {
     path: '/about',
     element: <About />,
   }
-*/
 ]);
 
 function App() {
