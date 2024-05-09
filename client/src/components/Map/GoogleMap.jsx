@@ -19,15 +19,15 @@ const GoogleMap = () => {
 	const AUSTIN_LONG = -97.7;
 	const position = {lat: AUSTIN_LAT, lng: AUSTIN_LONG};
 
-	const MONGOLIA_LAT = 106.6;
-	const MONGOLIA_LONG = 47.6;
+	const MONGOLIA_LAT = 47.6;
+	const MONGOLIA_LONG = 106.6;
 
 	return (
 		<APIProvider apiKey={API_KEY} libraries={['marker']}>
 			<Map 
 				mapId={'bf51a910020fa25a'}
 				center={position} 
-				zoom={9}
+				zoom={2}
 				gestureHandling={'greedy'}
 				disableDefaultUI={true}
 			>
