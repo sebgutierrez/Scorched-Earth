@@ -19,6 +19,9 @@ const GoogleMap = () => {
 	const AUSTIN_LONG = -97.7;
 	const position = {lat: AUSTIN_LAT, lng: AUSTIN_LONG};
 
+	const MONGOLIA_LAT = 106.6;
+	const MONGOLIA_LONG = 47.6;
+
 	return (
 		<APIProvider apiKey={API_KEY} libraries={['marker']}>
 			<Map 
@@ -31,7 +34,16 @@ const GoogleMap = () => {
 				{/* advanced marker with customized pin */}
 				<AdvancedMarker
 					position={{lat: AUSTIN_LAT, lng: AUSTIN_LONG}}
-					title={'Austin, TX'}>
+					title={'Austin, TX, USA'}>
+					<Pin
+						background={'#22ccff'}
+						borderColor={'#1e89a1'}
+						glyphColor={'#0f677a'}>
+					</Pin>
+				</AdvancedMarker>
+				<AdvancedMarker
+					position={{lat: MONGOLIA_LAT, lng: MONGOLIA_LONG}}
+					title={'Ulaanbaatar, Mongolia'}>
 					<Pin
 						background={'#22ccff'}
 						borderColor={'#1e89a1'}

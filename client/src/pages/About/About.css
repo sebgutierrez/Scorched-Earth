@@ -3,8 +3,9 @@
 .weather-wizard-container {
   width: 100%;
   min-height: 92vh;
-  background: linear-gradient(to bottom, #4b0082, #e6e6fa);
-  padding: 20px;
+  /* background: linear-gradient(to bottom, #4b0082, #e6e6fa); */
+  background-color: white;
+  padding: 1.5rem;
   text-align: center;
 }
 
@@ -39,8 +40,9 @@
 }
 
 .section-title {
-  font-size: 20px;
-  color: #ff4500;
+  font-weight: bold;
+  font-size: 3rem;
+  color: black;
 }
 
 .lorem-ipsum {
@@ -52,4 +54,26 @@
 .clouds-image {
   max-width: 100%;
   height: auto;
+}
+
+.earth-image {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0 16rem 0 16rem;
+  left: 8rem;
+  top: -2rem;
+  max-width: 48rem;
+}
+
+.question {
+  position: relative;
+  z-index: 2;
+  margin-top:4rem;
+  font-size: 1.25rem;
+}
+.technology {
+  position: relative;
+  margin-top: 18.5rem;
 }
