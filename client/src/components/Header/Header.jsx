@@ -20,7 +20,7 @@ const Header = () => {
 							<Link to='/' className="menu-item">About</Link>
 						</li>
 						<li className="menu-item-container">  
-							<Link to='/' className="menu-item">Team</Link>
+							<Link to='/team' className="menu-item">Team</Link>
 						</li>
 					</ul>
 				</nav>
