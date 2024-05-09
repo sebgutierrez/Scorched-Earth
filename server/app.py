@@ -38,11 +38,11 @@ def welcome():
 
 @app.route('/predict', methods=['GET'])
 def predict():
-    weekly_data = np.array([-15.1607895, -16.899155 , -26.145554 , -25.436138 , -23.275787, -19.539417 , -5.772232])
-    predictions = lstm_model.predict(weekly_data)
+    weekly_data = np.array([-15.1607895, -16.899155 , -26.145554 , -25.436138 , -23.275787, -19.539417 , -5.772232]).reshape(1, 7, 1)
+    predictions = lstm_model.predict(weekly_data).tolist()
     data = {
-        "ground_truth": [0.93571854],
-        "predictions": predictions 
+        'ground_truth': [0.93571854],
+        'predictions': predictions[0]
     }
     return jsonify(data)
 
