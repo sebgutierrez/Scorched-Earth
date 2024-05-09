@@ -5,11 +5,11 @@ import '../../App.css';
 import '../Forecast/Forecast.css';
 
 import Header from '../../components/Header/Header';
-import SimpleForm from '../../components/ForecastForm/SimpleForm';
+import SimpleForm from '../../components/ForecastForm/ForecastForm';
 import GoogleMap from '../../components/Map/GoogleMap';
 
 function Forecast() {
-  // test commit
+
   return (
     <Fragment> 
         <Header></Header>

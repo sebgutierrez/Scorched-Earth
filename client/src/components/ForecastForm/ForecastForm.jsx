@@ -14,7 +14,9 @@ const LocationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form data submitted:', formData);
+    fetch("http://localhost:5000/predict")
+    .then(x => x.json())
+    .then(x => console.log(x));
   };
 
   return (
