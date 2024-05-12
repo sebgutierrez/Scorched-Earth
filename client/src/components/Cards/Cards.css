@@ -1,0 +1,53 @@
+.ML-team{
+    width:100px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #BA68C8;
+    border-radius: 0.375rem;
+    background-color: #D1C4E9;
+    color:#311B92;
+
+}
+
+
+.React-team{
+    width:100px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: rgb(219 234 254);
+    border-radius: 0.375rem;
+    background-color:rgb(219 234 254) ;
+    border: blue-100;
+    color: rgb(30 64 175);
+
+}
+
+.Team-lead{
+    width:100px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: rgb(220 252 231);
+    border-radius: 0.375rem;
+    background-color:rgb(220 252 231);
+    color: rgb(22 101 52);
+
+}
+
+.API-team{
+    width:100px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: rgb(165 243 252);
+    border-radius: 0.375rem;
+    background-color: rgb(207 250 254);
+    color: rgb(21 94 117);
+
+}
