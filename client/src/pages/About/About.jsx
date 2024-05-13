@@ -12,7 +12,7 @@ const About = () => {
         {/* <h1 className="app-title">Weather Wizard</h1> */}
         <h2 className="section-title">Scorched Earth</h2>
         <p className="text-black mt-6">
-          Scorched Earth is a machine learning web application for forecasting daily temperature. The main goal of our Scorched Earth is to answer the question:
+          Scorched Earth is a machine learning web application for forecasting daily temperature. The main goal of Scorched Earth is to answer the question:
         </p>
         <div className="mt-24 relative">
           <img src="/earth art.png" alt="Clouds with sun rays" className="earth-image" />

@@ -18,6 +18,7 @@ const GoogleMap = () => {
 	const AUSTIN_LAT = 30.3;
 	const AUSTIN_LONG = -97.7;
 
+	const position = {lat: AUSTIN_LAT, lng: AUSTIN_LONG};
 	const MONGOLIA_LAT = 47.6;
 	const MONGOLIA_LONG = 106.6;
 
