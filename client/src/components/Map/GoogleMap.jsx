@@ -17,7 +17,6 @@ const GoogleMap = () => {
 
 	const AUSTIN_LAT = 30.3;
 	const AUSTIN_LONG = -97.7;
-	const position = {lat: AUSTIN_LAT, lng: AUSTIN_LONG};
 
 	const MONGOLIA_LAT = 47.6;
 	const MONGOLIA_LONG = 106.6;
@@ -27,7 +26,7 @@ const GoogleMap = () => {
 			<Map 
 				mapId={'bf51a910020fa25a'}
 				center={position} 
-				zoom={2}
+				zoom={3}
 				gestureHandling={'greedy'}
 				disableDefaultUI={true}
 			>

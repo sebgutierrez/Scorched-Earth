@@ -5,7 +5,7 @@ import '../../App.css';
 import '../Forecast/Forecast.css';
 
 import Header from '../../components/Header/Header';
-import SimpleForm from '../../components/ForecastForm/ForecastForm';
+import ForecastForm from '../../components/ForecastForm/ForecastForm';
 import GoogleMap from '../../components/Map/GoogleMap';
 
 function Forecast() {
@@ -14,7 +14,7 @@ function Forecast() {
     <Fragment> 
         <Header></Header>
         <div className="map-form-container">
-          <SimpleForm></SimpleForm>
+          <ForecastForm></ForecastForm>
           <div className="map-container">
             <GoogleMap></GoogleMap>
           </div>

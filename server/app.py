@@ -16,13 +16,13 @@ variables = 1
 batch_size = 1
 lstm_cells = 7
 
-lstm_model = Sequential()
-lstm_model.add(Input(shape=(input_length, variables), batch_size=batch_size))
-lstm_model.add(LSTM(lstm_cells))
-lstm_model.add(Dense(units=7))
-lstm_model.add(Dense(units=1))
+lstm = Sequential()
+lstm.add(Input(shape=(input_length, variables), batch_size=batch_size))
+lstm.add(LSTM(lstm_cells))
+lstm.add(Dense(units=7))
+lstm.add(Dense(units=1))
 
-lstm_model.load_weights('./models/lstm_mongolia_weights.keras')
+lstm.load_weights('./models/lstm_mongolia_weights.keras')
 
 filename = 'Mongolia_Test_ERA5_2mTEMP.nc'
 fullpath = os.path.join('./datasets/', filename)
@@ -30,7 +30,7 @@ mongolia_test_dataset = xr.open_dataset(fullpath)
 
 lr = joblib.load('./models/linear_mongolia.pkl')
 
-# lstm_model.summary()
+# lstm.summary()
 
 # app instance
 app = Flask(__name__)
@@ -41,14 +41,31 @@ def welcome():
     message = 'Welcome to Scorched Earth 🔥🌎'
     return jsonify({'message': message})
 
-@app.route('/predict', methods=['GET'])
+@app.route('/predict', methods=['POST'])
 def predict():
-    weekly_data = mongolia_test_dataset['t2m'][0:7].data.reshape(1,7,1)
-    predictions = lstm_model.predict(weekly_data).tolist()
-    data = {
-        'ground_truth': mongolia_test_dataset['t2m'][7].data.tolist(),
-        'predictions': predictions[0]
-    }
+    form = request.json
+    data = {}
+    if form['Location'] == 'Ulaanbaatar, Mongolia':
+        inputs = mongolia_test_dataset['t2m'][0:7].data
+        if form['Model'] == 'Linear Regression':
+            inputs = inputs.reshape(1,7)
+            outputs = lr.predict(inputs)
+            data = {
+                'expected': "%.2f" % mongolia_test_dataset['t2m'][7].data,
+                'predicted': ["%.2f" % output for output in outputs]
+            }
+        if form['Model'] == 'LSTM':
+            inputs = inputs.reshape(1,7,1)
+            outputs = lstm.predict(inputs)
+            data = {
+                'expected': "%.2f" % mongolia_test_dataset['t2m'][7].data,
+                'predicted': ["%.2f" % output for output in outputs]
+            }
+    if form['Location'] == 'Austin, TX, USA':
+        if form['Model'] == 'Linear Regression':
+            pass
+        if form['Model'] == 'LSTM':
+            pass
     return jsonify(data)
 
 if __name__ == "__main__":
