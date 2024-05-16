@@ -27,9 +27,10 @@ const GoogleMap = () => {
 			<Map 
 				mapId={'bf51a910020fa25a'}
 				center={position} 
-				zoom={3}
+				zoom={4}
 				gestureHandling={'greedy'}
 				disableDefaultUI={true}
+				className="flex w-full h-[50vh]"
 			>
 				{/* advanced marker with customized pin */}
 				<AdvancedMarker

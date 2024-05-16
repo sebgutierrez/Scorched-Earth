@@ -46,16 +46,16 @@ const ForecastForm = () => {
   };
 
   return (
-    <div className="relative bg-white w-1/4">
-      <h2 className="text-black text-xl font-semibold pt-6"></h2>
-      <form className="px-8 pt-4 flex flex-col justify-between" onSubmit={handleSubmit}>
+    <div className="relative bg-white w-fit lg:w-1/3 h-[92vh] z-10">
+      {/* <h2 className="text-black text-xl font-semibold pt-6"></h2> */}
+      <form className="px-8 pt-4 flex flex-col justify-between h-full" onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label htmlFor="location">
             <p className="text-black text-left">Location:</p>
           </label>
           <select
             type="text"
-            className="bg-white px-1 py-1 mb-4 w-full text-slate-500 hover:bg-slate-100 border-2 border-slate-200"
+            className="bg-white px-1 py-1 mb-4 w-48 xl:w-full text-slate-500 hover:bg-slate-100 border-2 border-slate-200"
             id="location"
             name="location"
             value={formLocation.location}
@@ -66,11 +66,11 @@ const ForecastForm = () => {
             <option value="Ulaanbaatar, Mongolia">Ulaanbaatar, Mongolia</option>
           </select>
           <label htmlFor="model">
-            <p className="text-black text-left">Model Selection:</p>
+            <p className="text-black text-left">Model:</p>
           </label>
           <select
             type="text"
-            className="bg-white px-1 py-1 w-full text-slate-500 hover:bg-slate-100 border-2 border-slate-200"
+            className="bg-white px-1 py-1 w-48 xl:w-full text-slate-500 hover:bg-slate-100 border-2 border-slate-200"
             id="model"
             name="model"
             value={formModel.model}
@@ -81,11 +81,11 @@ const ForecastForm = () => {
             <option value="LSTM">LSTM</option>
           </select>
         </div>
-        <button type="submit" className="bg-[#2C74FF] absolute bottom-6 w-60 ml-0.5 rounded-md py-2 font-bold text-xl text-white">
+        <button type="submit" className="bg-[#2C74FF] mb-4 rounded-md py-2 font-bold text-xl text-white">
           Forecast
         </button>
       </form>
-      <ForecastDisplay expected={expectedData} predicted={predictedData}></ForecastDisplay>
+      {/* <ForecastDisplay expected={expectedData} predicted={predictedData}></ForecastDisplay> */}
     </div>
   );
 };

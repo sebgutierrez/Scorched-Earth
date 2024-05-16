@@ -1,13 +1,14 @@
 import React, { Fragment, useState } from 'react'
 import '../../App.css';
 import './Header.css';
+import LogoIdeas from '../LogoIdeas/LogoIdeas';
 import { Link } from 'react-router-dom'; // substitutes <a> tags
 
 const Header = () => {
 	return (
 		<Fragment>
 			<header className="header">
-				<span className="logo">Scorched Earth</span>
+				<LogoIdeas></LogoIdeas>
 				<nav className="navbar">
 					<ul className="nav-list">
 						<li className="menu-item-container">

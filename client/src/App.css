@@ -1,9 +1,8 @@
 #root {
   margin: 0;
   padding: 0;
-  margin: 0;
-  padding: 0;
   text-align: center;
+  overflow-x: hidden;
 }
 
 
@@ -73,7 +72,7 @@
   font-weight: bold;
 }
 
-.map-form-container {
+/* .map-form-container {
   position: relative;
   display: flex; 
   width: 100vw;
@@ -84,7 +83,7 @@
   display: flex;
   width: 100%;
   background-color: lightgrey;
-}
+} */
 
 .cards-container {
   position: relative;

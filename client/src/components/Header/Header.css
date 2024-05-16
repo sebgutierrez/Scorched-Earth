@@ -2,11 +2,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	position: static;
+	position: relative;
 	top: 0;
 	padding: 0.5rem 0 0.5rem 0.25rem;
 	height: 8vh;
-	width: 100%;
+	width: 100vw;
 	background-color: #306BF3;
 	box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   }
@@ -62,4 +62,14 @@
 	color: white;
 	font-size: 1.5rem;
 	font-weight: bold;
+  }
+
+  @media (min-width: 1250px) {
+	.menu-item{
+		display: flex;
+		cursor: pointer;
+		color: white;
+		font-size: 1.5rem;
+		font-weight: bold;
+	  }
   }
