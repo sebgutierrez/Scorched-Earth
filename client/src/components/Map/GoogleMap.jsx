@@ -30,7 +30,7 @@ const GoogleMap = () => {
 				zoom={4}
 				gestureHandling={'greedy'}
 				disableDefaultUI={true}
-				className="flex w-full h-[50vh]"
+				className="flex w-full h-[48vh]"
 			>
 				{/* advanced marker with customized pin */}
 				<AdvancedMarker

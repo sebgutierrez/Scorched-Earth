@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Montserrat, Inter;
+  font-family: "Montserrat", sans-serif, Inter;
   line-height: 1.5;
   font-weight: 400;
 

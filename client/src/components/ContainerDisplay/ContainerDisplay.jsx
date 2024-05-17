@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 
 import ForecastDisplay from '../ForecastDisplay/ForecastDisplay';
 import ModelDisplay from '../ModelDisplay/ModelDisplay';
-import ChartDisplay from '../ChartDisplay/ChartDisplay';
+import ChartDisplay from '../ChartsDisplay/ChartsDisplay';
 const ContainerDisplay = (props) => {
 	const container = useRef(null);
 	const xPosition = useRef(0);
@@ -26,13 +26,18 @@ const ContainerDisplay = (props) => {
 	}
 
 	return (
-	<div className="flex flex-col bg-white w-full h-[42vh]"> {/*calc(100vh - header height - map height)*/}
-		<ol className="flex gap-x-4 top-0 left-0">
-			<li className="text-black">Forecast</li>
-			<li className="text-black">Chart</li>
-			<li className="text-black">Model</li>
+	<div className="flex flex-col bg-white w-full h-[44vh] border-b-2"> {/*calc(100vh - header height - map height)*/}
+		<ol className="flex items-end justify-between top-0 left-0 w-full bg-slate-100 border-2 rounded-t-lg py-1 pl-2">
+			<div className="flex gap-x-4">
+				<li className="text-black">Forecast</li>
+				<li className="text-black">Charts</li>
+				<li className="text-black">Model</li>
+			</div>
+			<div className="flex pr-1">
+				<button className="text-black border-2 px-2.5 py-1 rounded-md">&deg;F</button>
+			</div>
 		</ol>
-		<div className="relative bg-white flex w-full"
+		<div className="relative bg-white flex w-full h-full border-l-2 pl-2"
 		 ref={container}
 		 style={{
 			transitionDuration: '0.25s',
@@ -40,15 +45,23 @@ const ContainerDisplay = (props) => {
 		 }}>
 			<div className="flex relative bg-white">
 				<ForecastDisplay className=""></ForecastDisplay>
-				<img src="/right-scroll.svg" className="absolute right-0 top-24 text-black w-fit opacity-50 hover:opacity-100" onClick={onRightScroll}/>
+				<div className="flex flex-col justify-center right-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onRightScroll}>
+					<img src="/right-scroll.svg" className="text-black w-fill"/>
+				</div>
 			</div>
 			<div className="flex relative bg-white">
-				<img src="/left-scroll.svg" className="absolute bg-white left-0 top-24 text-black w-fit opacity-50 hover:opacity-100" onClick={onLeftScroll}/>
+				<div className="flex flex-col justify-center left-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onLeftScroll}>
+					<img src="/left-scroll.svg" className="text-black w-fill"/>
+				</div>
 				<ChartDisplay className=""></ChartDisplay>
-				<img src="/right-scroll.svg" className="absolute right-0 top-24 text-black w-fit opacity-50 hover:opacity-100" onClick={onRightScroll}/>
+				<div className="flex flex-col justify-center right-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onRightScroll}>
+					<img src="/right-scroll.svg" className="text-black w-fill"/>
+				</div>
 			</div>
 			<div className="flex relative bg-white">
-				<img src="/left-scroll.svg" className="absolute bg-white left-0 top-24 text-black w-fit opacity-50 hover:opacity-100" onClick={onLeftScroll}/>
+				<div className="flex flex-col justify-center left-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onLeftScroll}>
+					<img src="/left-scroll.svg" className="text-black w-fill"/>
+				</div>
 				<ModelDisplay className=""></ModelDisplay>
 			</div>
 		</div>
