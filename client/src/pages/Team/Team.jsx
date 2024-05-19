@@ -11,28 +11,45 @@ const TeamMembers1 = [
         year: "Sophomore",
         contribution: "React developer",
         profileLink: "https://www.linkedin.com/in/syeda-wasiq-3a2160b4",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: false,
+        isTeamLead: false,
+        isMlTeam: false
+
     },{
         id: 2,
         name: "Sebastian Gutierrez",
         year: "Senior",
         contribution: "Team Lead. React, Google Maps API, and Machine Learning developer",
         profileLink: "https://www.linkedin.com/in/sebastian-gutierrez-363130216/",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: true,
+        isTeamLead: true,
+        isMlTeam: true
     },{
         id: 3,
         name: "Nathan Tran",
         year: "Junior",
         contribution: "React developer",
         profileLink: "https://www.linkedin.com/in/nathan-tran-190866265/",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: false,
+        isTeamLead: false,
+        isMlTeam: false
     },{
         id: 4,
         name: "Dinh Bui",
         year: "Senior",
         contribution: "React and Google Maps API developer",
         profileLink: "https://www.linkedin.com/in/dbui02/",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: true,
+        isTeamLead: false,
+        isMlTeam: false
     },
 ]
 const TeamMembers2 = [
@@ -42,28 +59,44 @@ const TeamMembers2 = [
         year: "Junior",
         contribution: "Team Lead. Machine Learning developer",
         profileLink: "",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: false,
+        isApiTeam: false,
+        isTeamLead: true,
+        isMlTeam: true
     },{
         id: 6,
         name: "Parsa Motahar",
         year: "Junior",
         contribution: "React developer",
         profileLink: "",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: false,
+        isTeamLead: false,
+        isMlTeam: false
     },{
         id: 7,
         name: "Chase",
         year: "Junior",
         contribution: "UI designer",
         profileLink: "",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: false,
+        isTeamLead: false,
+        isMlTeam: false
     },{
         id: 8,
         name: "Syeda",
         year: "Sophomore",
         contribution: "(Team Page)",
         profileLink: "https://www.linkedin.com/in/syeda-wasiq-3a2160b4",
-        image: "/default-profile-icon.png"
+        image: "/default-profile-icon.png",
+        isReactTeam: true,
+        isApiTeam: false,
+        isTeamLead: false,
+        isMlTeam: false
     },
 ]
 
@@ -79,14 +112,23 @@ const TeamMembers2 = [
             <div className="card-container">
             {
                 TeamMembers1.map((member) => (
-                    <Card className="" data={member} key={member.id}></Card>
-                    ))
+                    <Card className="" data={member} key={member.id} 
+                    isApiTeam={true} infoApi="belongs to API Team" 
+                    isMlTeam={true} infoMl="belongs to ML Team"
+                    isTeamLead={true} infoTeamLead="is a Team Lead" 
+                    isReactTeam={true} infoReact="belongs to React Team"></Card>
+                    )
+                )
             }
             </div>
             <div className="card-container">
              {
                 TeamMembers2.map((member) => (
-                    <Card className="" data={member} key={member.id}></Card>
+                    <Card className="" data={member} key={member.id} 
+                    isApiTeam={true} infoApi="belongs to API Team" 
+                    isMlTeam={true} infoMl="belongs to ML Team"
+                    isTeamLead={true} infoTeamLead="is a Team Lead" 
+                    isReactTeam={true} infoReact="belongs to React Team"></Card>
                     ))
             }
             </div>

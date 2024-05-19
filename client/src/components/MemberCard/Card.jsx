@@ -5,9 +5,9 @@ import React from 'react'
 
 import logo from "../../assets/icons8-linkedin.svg"
 const Card = (props) => {
-    
+
+if(props.isApiTeam) {
   return (
-    
     <div className="max-w-md mx-auto md:max-w-2xl sm:mt-6 min-w-md bg-white w-full mb-6 shadow-lg rounded-xl lg:mt-24 flex flex-col justify-between">
         <div className="relative px-6">
             <div className="flex flex-wrap justify-center align-center">
@@ -21,7 +21,7 @@ const Card = (props) => {
                 <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">{props.data.name}</h3>
                 <div className="text-s mt-0 mb-2 text-slate-400 font-bold">
                     <i className="fas fa-map-marker-alt mr-2 text-slate-500 opacity-75">{props.data.year}</i>
-                    
+                    <h3>{props.infoApi}{props.infoMl}</h3>
                 </div>
             </div>
             <div className="mt-6 py-6 border-t border-slate-200 text-center">
@@ -42,6 +42,8 @@ const Card = (props) => {
         </div>
     </div>
   )
+}
+
 }
 
 export default Card
