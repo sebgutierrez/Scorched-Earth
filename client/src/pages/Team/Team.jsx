@@ -127,7 +127,7 @@ const TeamMembers2 = [
                     <Card className="" data={member} key={member.id} 
                     isApiTeam={member.isApiTeam} infoApi="API Team" 
                     isMlTeam={member.isMlTeam} infoMl="ML Team"
-                    isTeamLead={member.isTeamLead} infoTeamLead="is a Team Lead" 
+                    isTeamLead={member.isTeamLead} infoTeamLead="Team Lead" 
                     isReactTeam={member.isReactTeam} infoReact="React Team"></Card>
                     )
                 )
