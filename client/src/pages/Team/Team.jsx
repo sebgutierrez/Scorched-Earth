@@ -113,10 +113,10 @@ const TeamMembers2 = [
             {
                 TeamMembers1.map((member) => (
                     <Card className="" data={member} key={member.id} 
-                    isApiTeam={true} infoApi="belongs to API Team" 
-                    isMlTeam={true} infoMl="belongs to ML Team"
-                    isTeamLead={true} infoTeamLead="is a Team Lead" 
-                    isReactTeam={true} infoReact="belongs to React Team"></Card>
+                    isApiTeam={member.isApiTeam} infoApi="API Team" 
+                    isMlTeam={member.isMlTeam} infoMl="ML Team"
+                    isTeamLead={member.isTeamLead} infoTeamLead="Team Lead" 
+                    isReactTeam={member.isReactTeam} infoReact="React Team"></Card>
                     )
                 )
             }
@@ -125,11 +125,12 @@ const TeamMembers2 = [
              {
                 TeamMembers2.map((member) => (
                     <Card className="" data={member} key={member.id} 
-                    isApiTeam={true} infoApi="belongs to API Team" 
-                    isMlTeam={true} infoMl="belongs to ML Team"
-                    isTeamLead={true} infoTeamLead="is a Team Lead" 
-                    isReactTeam={true} infoReact="belongs to React Team"></Card>
-                    ))
+                    isApiTeam={member.isApiTeam} infoApi="API Team" 
+                    isMlTeam={member.isMlTeam} infoMl="ML Team"
+                    isTeamLead={member.isTeamLead} infoTeamLead="is a Team Lead" 
+                    isReactTeam={member.isReactTeam} infoReact="React Team"></Card>
+                    )
+                )
             }
             </div>
         </div>
