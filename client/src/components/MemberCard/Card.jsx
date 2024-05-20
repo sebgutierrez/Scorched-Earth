@@ -23,11 +23,13 @@ if(props.isMlTeam && props.isApiTeam && props.isReactTeam && props.isTeamLead){
                 <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">{props.data.name}</h3>
                 <div className="text-s mt-0 mb-2 text-slate-400 font-bold">
                     <i className="fas fa-map-marker-alt mr-2 text-slate-500 opacity-75">{props.data.year}</i>
-                    <h3 className="rounded-lg bg-red-100 text-pink-600 font-bold mb-1">{props.infoMl}</h3>
-                    <h3 className="rounded-lg bg-gray-200 text-purple-600 font-bold mb-1"> {props.infoApi}</h3>
-                    <h3 className="rounded-lg bg-indigo-100 text-blue-600 font-bold mb-1"> {props.infoReact}</h3>
-                    <h3 className="rounded-lg bg-green-200 text-green-700 font-bold mb-1"> {props.infoTeamLead}</h3>
- 
+                    <div>
+                        <h3 className="rounded-lg bg-red-100 text-pink-600 font-bold mb-1" style={{ display: 'inline-block', marginRight: '5px' }}>{props.infoMl}</h3>
+                        <h3 className="rounded-lg bg-gray-200 text-purple-600 font-bold mb-1" style={{ display: 'inline-block', marginRight: '5px' }}>{props.infoApi}</h3>
+                        <h3 className="rounded-lg bg-indigo-100 text-blue-600 font-bold mb-1" style={{ display: 'inline-block', marginRight: '5px' }}>{props.infoReact}</h3>
+                        <h3 className="rounded-lg bg-green-200 text-green-700 font-bold mb-1" style={{ display: 'inline-block' }}>{props.infoTeamLead}</h3>
+                    </div>
+
                 </div>
             </div>
             <div className="mt-6 py-6 border-t border-slate-200 text-center">
@@ -104,9 +106,10 @@ else if(props.isReactTeam && props.isApiTeam){
                   <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">{props.data.name}</h3>
                   <div className="text-s mt-0 mb-2 text-slate-400 font-bold">
                       <i className="fas fa-map-marker-alt mr-2 text-slate-500 opacity-75">{props.data.year}</i>
-                      <h3 className="rounded-lg bg-gray-200 text-purple-600 font-bold mb-1">{props.infoApi} </h3>
-                      <h3 className="rounded-lg bg-indigo-100 text-blue-600 font-bold mb-1"> {props.infoReact}</h3>
-                      
+                      <div>
+                        <h3 className="rounded-lg bg-gray-200 text-purple-600 font-bold mb-1" style={{ display: 'inline-block', marginRight: '5px' }}>{props.infoApi}</h3>
+                        <h3 className="rounded-lg bg-indigo-100 text-blue-600 font-bold mb-1" style={{ display: 'inline-block' }}>{props.infoReact}</h3>
+                     </div>
                   </div>
               </div>
               <div className="mt-6 py-6 border-t border-slate-200 text-center">
@@ -168,9 +171,6 @@ else if(props.isTeamLead && props.isMlTeam){
       </div>
     )
   }
-
-
-
 
 }
 

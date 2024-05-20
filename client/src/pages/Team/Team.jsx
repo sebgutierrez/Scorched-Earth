@@ -88,10 +88,10 @@ const TeamMembers2 = [
         isMlTeam: false
     },{
         id: 8,
-        name: "Syeda",
-        year: "Sophomore",
-        contribution: "(Team Page)",
-        profileLink: "https://www.linkedin.com/in/syeda-wasiq-3a2160b4",
+        name: "Alihamza",
+        year: "Junior",
+        contribution: "React developer",
+        profileLink: "",
         image: "/default-profile-icon.png",
         isReactTeam: true,
         isApiTeam: false,
