@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
 import './ForecastChart.css';
 
@@ -29,13 +29,11 @@ const ForecastChart = (props) => {
 					},
 				},
 				events: {
-					mounted: function(chartContext, config){
-						setTimeout(() => {
-							this.width = '100%'
-						}, 100) 
+					mounted: (chart) => {
+					  chart.windowResizeHandler();
 					}
-				}
-			},
+				  }
+			},	  
 			grid: {
 				strokeDashArray: 2,
 			},
@@ -123,9 +121,6 @@ const ForecastChart = (props) => {
 						parsed[1] + " " + parsed[0] + " " + parsed[2]
 					}</div>${hoverList}`;
 				},
-			},
-			stroke: {
-				curve: 'smooth'
 			}
 		}
 	});
@@ -240,6 +235,11 @@ const ForecastChart = (props) => {
 	  setPrevIsCelsius(props.isCelsius);
 	  flipIsCelsius();
 	}
+
+	useEffect((() => {
+
+	}), []);
+
 	return (
 		<div className="w-full border-2 px-2 rounded-md">
 			<Chart
