@@ -1,5 +1,5 @@
-#chart .apexcharts-tooltip:hover {
-	opacity: 0.5 !important;
+/* #chart .apexcharts-tooltip:hover {
+	opacity: 1.0 !important;
 }
 
 #chart .apexcharts-tooltip.apexcharts-theme-light {
@@ -8,10 +8,18 @@
 
 #chart .apexcharts-tooltip.apexcharts-theme-light:hover {
 	background: none !important;
-}
+} */
 
 .apexcharts-svg {
     overflow: visible;
+}
+
+.apexcharts-tooltip {
+	color: black;
+}
+
+.apexcharts-tooltip:hover {
+	opacity: 0.5 !important;
 }
 
 /* .apex-charts-legend {

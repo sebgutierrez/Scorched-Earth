@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ForecastDisplay from '../ForecastDisplay/ForecastDisplay';
 const ForecastForm = () => {
   const [formLocation, setLocationData] = useState({
     location: ''
@@ -85,7 +84,6 @@ const ForecastForm = () => {
           Forecast
         </button>
       </form>
-      {/* <ForecastDisplay expected={expectedData} predicted={predictedData}></ForecastDisplay> */}
     </div>
   );
 };
