@@ -18,6 +18,7 @@ function Forecast() {
 
   const [helpBoxToggle, setHelpBoxToggle] = useState(false);
 
+  // Temporary static temperature data
   const openWeatherData = {
 		c: [[new Date('2023/12/24').getTime(), -17.3], [new Date('2023/12/25').getTime(), -17.8], [new Date('2023/12/26').getTime(), -19.7], [new Date('2023/12/27').getTime(), -15.4], [new Date('2023/12/28').getTime(), -13.8], [new Date('2023/12/29').getTime(), -11.7], [new Date('2023/12/30').getTime(), -15.2],  [new Date('2023/12/31').getTime(), -14.3],  [new Date('2024/01/01').getTime(), -15.5], [new Date('2024/01/02').getTime(), -13.7], [new Date('2024/01/03').getTime(), -14.8], [new Date('2024/01/04').getTime(), -15.5]],
 		f: [[new Date('2023/12/24').getTime(), 0.9], [new Date('2023/12/25').getTime(), -0.1], [new Date('2023/12/26').getTime(), -3.5], [new Date('2023/12/27').getTime(), 4.3], [new Date('2023/12/28').getTime(), 7.2], [new Date('2023/12/29').getTime(), 10.9], [new Date('2023/12/30').getTime(), 4.7],  [new Date('2023/12/31').getTime(), 6.2],  [new Date('2024/01/01').getTime(), 4.1], [new Date('2024/01/02').getTime(), 7.4], [new Date('2024/01/03').getTime(), 5.4], [new Date('2024/01/04').getTime(), 4.1]]
@@ -28,7 +29,7 @@ function Forecast() {
 	}
 
   return (
-    <div className='flex flex-col relative bg-white'> 
+    <div className='flex flex-col relative bg-white min-h-[100vh]'> 
         <Header></Header>
         <div className="flex flex-col w-full bg-white mt-6 mb-6 px-4 md:px-6 main-content-top-padding">
           <div className='flex relative w-full justify-between items-end pb-1 border-2 md:border-b-2 rounded-t-lg'>
@@ -50,7 +51,12 @@ function Forecast() {
             <ForecastForm modelInfo={modelInfo} setModelInfo={setModelInfo}></ForecastForm>      
           </div>
         </div>
-        <SectionContainer openWeatherData={openWeatherData} modelData={modelData} modelInfo={modelInfo} setModelInfo={setModelInfo}></SectionContainer>
+        {
+          modelInfo.location !== '' && modelInfo.model !== '' ? 
+                                                              (<SectionContainer openWeatherData={openWeatherData} modelData={modelData} modelInfo={modelInfo} setModelInfo={setModelInfo}></SectionContainer>)
+                                                              :
+                                                              (null)
+        }
     </div>
   );
 }
