@@ -1,86 +1,117 @@
-import React, {useState, useRef} from 'react';
+import React, { useState } from 'react';
 
 import HistoricalSection from '../HistoricalSection/HistoricalSection';
 import ModelSection from '../ModelSection/ModelSection';
 import ForecastSection from '../ForecastSection/ForecastSection';
 
 const SectionContainer = (props) => {
-	const container = useRef(null);
-	const xPosition = useRef(0);
 	const [isCelsius, setIsCelsius] = useState(false);
 
-	const openWeatherData = {
-		c: [[new Date('2023-12-24').getTime(), -17.3], [new Date('2023-12-25').getTime(), -17.8], [new Date('2023-12-26').getTime(), -19.7], [new Date('2023-12-27').getTime(), -15.4], [new Date('2023-12-28').getTime(), -13.8], [new Date('2023-12-29').getTime(), -11.7], [new Date('2023-12-30').getTime(), -15.2],  [new Date('2023-12-31').getTime(), -14.3],  [new Date('2024-01-01').getTime(), -15.5], [new Date('2024-01-02').getTime(), -13.7], [new Date('2024-01-03').getTime(), -14.8], [new Date('2024-01-04').getTime(), -15.5],  [new Date('2024-01-05').getTime(), -15.0]],
-		f: [[new Date('2023-12-24').getTime(), 0.9], [new Date('2023-12-25').getTime(), -0.1], [new Date('2023-12-26').getTime(), -3.5], [new Date('2023-12-27').getTime(), 4.3], [new Date('2023-12-28').getTime(), 7.2], [new Date('2023-12-29').getTime(), 10.9], [new Date('2023-12-30').getTime(), 4.7],  [new Date('2023-12-31').getTime(), 6.2],  [new Date('2024-01-01').getTime(), 4.1], [new Date('2024-01-02').getTime(), 7.4], [new Date('2024-01-03').getTime(), 5.4], [new Date('2024-01-04').getTime(), 4.1],  [new Date('2024-01-05').getTime(), 5.0]]
-	}
-	const modelData = {
-		c: [[new Date('2023-12-30').getTime(), -15.2], [new Date('2023-12-31').getTime(), -15.6], [new Date('2024-01-01').getTime(), -16.3], [new Date('2024-01-02').getTime(), -14.9], [new Date('2024-01-03').getTime(), -12.6], [new Date('2024-01-04').getTime(), -12.0], [new Date('2024-01-05').getTime(), -12.4]],
-		f: [[new Date('2023-12-30').getTime(), 4.7], [new Date('2023-12-31').getTime(), 3.9], [new Date('2024-01-01').getTime(), 2.7], [new Date('2024-01-02').getTime(), 5.2], [new Date('2024-01-03').getTime(), 9.4], [new Date('2024-01-04').getTime(), 10.4], [new Date('2024-01-05').getTime(), 9.7]]
-	}
-
-	function onRightScroll(){
-		let style = container.current.style;
-		if(xPosition.current == -160){
-			xPosition.current = 0;
-		}
-		else {
-			xPosition.current -= 80;
-		}
-		style.transform = `translateX(${xPosition.current}vw)`;
-		console.log(style.transform);
-	}
-
-	function onLeftScroll(){
-		let style = container.current.style;
-		xPosition.current = (xPosition.current + 80) % 240;
-		style.transform = `translateX(${xPosition.current}vw)`;
-	}
+	const [displaySelected, setDisplaySelected] = useState('lastWeek');
+	const [labelSelected, setLabelSelected] = useState('lastWeek');
 
 	function flipIsCelsius(){
 		setIsCelsius((isCelsius) => !isCelsius);
 	}
 	
+	const changeDisplay = (e) => {
+		setDisplaySelected(e.target.dataset.display); // 'lastWeek', 'forecast', 'model'
+		setLabelSelected(e.target.dataset.display); // 'lastWeek', 'forecast', 'model'
+	};
+
+	const changeSelect = (e) => {
+		setDisplaySelected(e.target.value); // 'lastWeek', 'forecast', 'model'
+		setLabelSelected(e.target.value); // 'lastWeek', 'forecast', 'model'
+	};
+
 	return (
-	<div className="flex flex-col bg-white w-full h-[50vh] overflow-x-hidden overflow-y-hidden z-100 border-2"> {/*calc(100vh - header height - map height)*/}
-		<ol className="flex items-end justify-between top-0 left-0 w-full bg-slate-100 border-b-2 py-1 pl-2">
-			<div className="flex gap-x-4">
-				<li className="text-black">Historical</li>
-				<li className="text-black">Forecast</li>
-				<li className="text-black">Model</li>
-			</div>
-			<div className="flex pr-1" onClick={flipIsCelsius}>
-				{ isCelsius ? <button className="text-black bg-white border-2 px-2 py-1 rounded-md">&deg;C</button> : <button className="text-black bg-white border-2 px-2 py-1 rounded-md">&deg;F</button> }
-			</div>
-		</ol>
-		<div className="relative bg-white flex w-full h-full"
-		 ref={container}
-		 style={{
-			transitionDuration: '0.25s',
-			transform: `translateX(${xPosition}vw)`
-		 }}>
-			<div className="flex relative bg-white">
-				<HistoricalSection className="" isCelsius={isCelsius} openWeatherData={openWeatherData}></HistoricalSection>
-				<div className="flex flex-col justify-center right-2 top-24 h-full opacity-50 hover:opacity-100" onClick={onRightScroll}>
-					<img src="/right-scroll.svg" className="text-black w-fill"/>
+		<div className="flex flex-col border-2 rounded-md mx-4 md:mx-6 mb-4">
+			<div className="flex flex-col">
+				<ul className="relative w-full flex justify-between items-center border-b-2 py-2 md:py-0 md:pt-4">
+					<div className="hidden md:flex md:gap-x-10 pl-3 mt-0 md:mt-3.5">
+						{
+							labelSelected === 'lastWeek' ?
+														   (<li className="text-[#2C74FF] shadow-[0_2px_0_rgba(44,116,255,1.0)] text-xl inline-flex flex-col cursor-pointer" 
+																data-display="lastWeek" 
+																onClick={changeDisplay}
+																>Last Week</li>)
+														   :
+														   (<li className="text-slate-400 hover:text-[#2C74FF]/50 hover:shadow-[0_2px_0_rgba(44,116,255,0.5)] text-xl cursor-pointer" 
+																data-display="lastWeek" 
+																onClick={changeDisplay}
+																>Last Week</li>)
+						}
+						{
+							labelSelected === 'forecast' ?
+														   (<li className="text-[#2C74FF] shadow-[0_2px_0_rgba(44,116,255,1.0)] text-xl inline-flex flex-col cursor-pointer" 
+																data-display="forecast" 
+																onClick={changeDisplay}
+																>Forecast</li>)
+														   :
+														   (<li className="text-slate-400 hover:text-[#2C74FF]/50 hover:shadow-[0_2px_0_rgba(44,116,255,0.5)] text-xl cursor-pointer" 
+																data-display="forecast" 
+																onClick={changeDisplay}
+																>Forecast</li>)
+						}
+						{/* {
+							labelSelected === 'model'   ?
+														(<li className="text-[#2C74FF] shadow-[0_2px_0_rgba(44,116,255,1.0)] text-xl inline-flex flex-col cursor-pointer" 
+															data-display="model" 
+															onClick={changeDisplay}
+															>Model</li>)
+														:
+														(<li className="text-slate-400 hover:text-[#2C74FF]/50 hover:shadow-[0_2px_0_rgba(44,116,255,0.5)] text-xl cursor-pointer" 
+															data-display="model" 
+															onClick={changeDisplay}
+															>Model</li>)
+						} */}
+					</div>
+					<div className="flex md:hidden pl-3">
+						<select
+							type="text"
+							className="bg-white px-1 py-1 w-fit text-lg text-slate-500 hover:bg-gray-50 border-2 rounded-md cursor-pointer focus:outline-none"
+							id="displaySelect"
+							name="displaySelect"
+							value={displaySelected}
+							onChange={changeSelect}
+						>
+							<option value="lastWeek">Last Week</option>
+							<option value="forecast">Forecast</option>
+							{/* <option value="model">Model</option> */}
+						</select>
+					</div>
+					<div className="pr-3 mb-0 md:mb-1" onClick={flipIsCelsius}>
+						{ isCelsius ? <button className="text-slate-500 text-xl border-2 rounded-md p-1 px-2">&deg;C</button> : <button className="text-slate-500 text-xl border-2 rounded-md p-1 px-2">&deg;F</button> }
+					</div>
+				</ul>
+				<div className="relative flex flex-col w-full h-full px-3 lg:px-4 py-2">
+					{
+						displaySelected === 'lastWeek' ?
+															(<div className="flex items-center relative bg-white">
+																<HistoricalSection className="" isCelsius={isCelsius} openWeatherData={props.openWeatherData} modelInfo={props.modelInfo} setModelInfo={props.setModelInfo}></HistoricalSection>
+															</div>)
+														:
+															(null)
+					}
+					{
+						displaySelected === 'forecast'  ?
+															(<div className="flex items-center relative bg-white">
+																<ForecastSection className="" isCelsius={isCelsius} openWeatherData={props.openWeatherData} modelData={props.modelData} modelInfo={props.modelInfo} setModelInfo={props.setModelInfo}></ForecastSection>
+															</div>)
+														:
+															(null)
+					}
+					{/* {
+						displaySelected === 'model' ?
+														(<div className="flex items-center relative bg-white">
+															<ModelSection className="" modelInfo={props.modelInfo} setModelInfo={props.setModelInfo}></ModelSection>
+														</div>)
+													:
+														(null)
+					} */}
 				</div>
-			</div>
-			<div className="flex relative bg-white">
-				<div className="flex flex-col justify-center left-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onLeftScroll}>
-					<img src="/left-scroll.svg" className="text-black w-fill"/>
-				</div>
-				<ForecastSection className="" isCelsius={isCelsius} openWeatherData={openWeatherData} modelData={modelData}></ForecastSection>
-				<div className="flex flex-col justify-center right-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onRightScroll}>
-					<img src="/right-scroll.svg" className="text-black w-fill"/>
-				</div>
-			</div>
-			<div className="flex relative bg-white">
-				<div className="flex flex-col justify-center left-0 top-24 h-full opacity-50 hover:opacity-100" onClick={onLeftScroll}>
-					<img src="/left-scroll.svg" className="text-black w-fill"/>
-				</div>
-				<ModelSection className=""></ModelSection>
 			</div>
 		</div>
-	</div>
-  );
+	);
 }
 export default SectionContainer;

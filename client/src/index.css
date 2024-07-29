@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(270deg, #C4E2FF 0%, #EDFBFF 51.2%);
+  background: linear-gradient(270deg, #C4E2FF 0%, #EDFBFF 50%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,15 +21,19 @@ body {
   margin: 0;
   /* display: flex;
   place-items: center; */
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
+}
+
+.map-svg-hover:hover {
+  fill: "#28F2FF"
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
+/* 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -41,4 +45,4 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

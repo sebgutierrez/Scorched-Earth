@@ -16,6 +16,8 @@
 
 .apexcharts-tooltip {
 	color: black;
+	transform: translate(-10px, -40px);
+	z-index: 500;
 }
 
 .apexcharts-tooltip:hover {
