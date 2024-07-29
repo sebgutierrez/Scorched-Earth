@@ -44,8 +44,8 @@ function Forecast() {
                                       (null)
             }
           </div>
-          <div className="grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-3 relative bg-slate-50 md:border-l-2 md:border-b-2">
-            <div className="w-full lg:w-4/5 border-r-2 border-l-2 md:border-0 md:mx-auto row-span-2 col-span-0 md:row-span-1 md:col-span-2 overflow-clip relative bg-white">
+          <div className="grid grid-rows-2 md:grid-rows-none grid-cols-none md:grid-cols-3 bg-slate-50 relative md:border-l-2 md:border-r-2 md:rounded-bl-lg md:border-b-2 md:rounded-br-lg">
+            <div className="w-full lg:w-4/5 border-r-2 border-l-2 md:border-0 md:mx-auto row-span-2 col-span-0 md:row-span-1 md:col-span-2 overflow-clip relative">
               <Map></Map>
             </div>
             <ForecastForm modelInfo={modelInfo} setModelInfo={setModelInfo}></ForecastForm>      

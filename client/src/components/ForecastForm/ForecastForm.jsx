@@ -52,9 +52,9 @@ const ForecastForm = (props) => {
   };
 
   return (
-    <div className="relative flex justify-center bg-white w-full min-h-[300px] lg:h-auto z-1">
-      <div className='flex w-full'>
-        <form className="px-8 pt-8 w-full flex flex-col justify-between h-full border-2 border-t-2 md:border-t-0 md:border-b-0 rounded-t-none rounded-b-md md:rounded-br-md md:rounded-l-none border-slate-200" onSubmit={handleSubmit}>
+    <div className="relative flex justify-center w-full bg-white min-h-[300px] lg:h-auto border-2 border-t-2 md:border-t-0 md:border-b-0 md:border-r-0 rounded-t-none rounded-b-lg md:rounded-br-lg md:rounded-l-none">
+      <div className='flex w-full '>
+        <form className="px-8 pt-8 w-full flex flex-col justify-between h-full" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="location">
               <p className="text-black text-left">Location</p>
