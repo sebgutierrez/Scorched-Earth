@@ -1,11 +1,21 @@
-# Scorched-Earth
-A machine learning web app for predicting future temperatures based off of CMIP6 simulation data
+# Scorched Earth / Weather Wizard
+A deep learning web app for predicting future temperatures based off of ERA5 data
 
-# React + Vite
+# Running the website
+Move to the client directory
+```cd client```
+Install required packages
+```npm install```
+Run server
+```npm run dev```
+Open on browser by CTRL+Clicking the localhost:port link.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Running the backend
+On another terminal, move to the server directory
+```cd server```
+Run the server.py script
+```python server.py```
+Unlike with vite, you must restart the server for any changes to server.py to be reflected. Simply repeat the last step.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Status
+The site is currently static while we get the AccuWeather API and other models working.
