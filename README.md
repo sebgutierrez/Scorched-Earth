@@ -1,5 +1,5 @@
 # Scorched Earth / Weather Wizard
-A deep learning web app for predicting future temperatures based off of ERA5 data
+A deep learning web app for predicting future temperatures based off of ERA5-Land data
 
 ## Running the website
 Move to the client directory
@@ -23,12 +23,12 @@ On another terminal, move to the server directory
     
 Run the server.py script
 
-    python server.py
+    python app.py
     
 Unlike with vite, you must restart the server for any changes to server.py to be reflected. Simply repeat the last step.
 
-## Downloading data from CDS
-...
-
-# Status
+## Status
 The site is currently static while we get the AccuWeather API and other models working.
+
+## Downloading data from CDS
+We used the CDS API to collect our data [https://cds.climate.copernicus.eu/api-how-to]. Repo doesn't come with the dataset, thus you will have to download your own data if you would like to train your data using our models. This is not needed to run the app.
