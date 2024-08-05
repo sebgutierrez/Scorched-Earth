@@ -55,7 +55,7 @@ const About = () => {
             </section>
 
 
-            <section className='min-h-[60vh] flex flex-col justify-center bg-slate-50 py-8 md:py-8'>
+            <section className='min-h-[60vh] flex flex-col justify-center bg-slate-50/50 py-8 md:py-8'>
               <div className='flex flex-col md:flex-row md:grid-cols-2 mt-4 px-8 sm:px-24'>
                 <div className='pr-0 md:pr-6'>
                   <span className='text-slate-700 font-bold text-2xl w-full '>Code[Coogs]</span>
@@ -74,7 +74,7 @@ const About = () => {
             </section>
 
 
-            <section className='min-h-[60vh] flex flex-col justify-center py-8 md:py-8  px-8 sm:px-24'>
+            <section className='min-h-[60vh] flex flex-col justify-center py-8 md:py-24 px-8 sm:px-24'>
               <span className='text-slate-500 font-bold text-2xl text-center'>Dataset</span>
               <p className="text-slate-500 text-left hyphens-auto pt-2 md:pt-4">
                   Our models were trained using the ERA5-Land dataset. ERA5 is the fifth generation of European Centre for Medium-Range Weather Forecasts (ECMWF) climate reanalyses, providing hourly estimates of a large number of atmospheric, land, and oceanic climate variables.
@@ -105,45 +105,44 @@ const About = () => {
             </section>
 
 
-            <section className='min-h-[60vh] flex flex-col justify-center bg-slate-50 py-8 md:py-8 px-8 sm:px-24'>
+            <section className='min-h-[60vh] flex flex-col justify-center bg-slate-50/50 py-8 md:py-24 px-8 sm:px-24'>
               <span className='text-slate-700 font-bold text-2xl text-center'>Technology</span>
               <p className="text-slate-600 text-left hyphens-auto pt-2 md:pt-4">
                 Weather Wizard has been a great experience for learning new technologies and sharpening our programming skills. Here's a list of most of the stuff we used along our journey.
               </p>
-              <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 py-6 w-full justify-between'>
+              <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 py-6 mt-6 w-full justify-between'>
                 <div className='tech-card flex flex-col rounded-lg min-h-[200px]'>
                   <div className='front shadow-lg flex flex-col w-full h-full justify-center items-center'>
                   <img src={mlSVG} className='w-[70px] h-[50px]'></img>
-                    <span className='text-slate-700 text-lg font-bold text-left pt-4'>Machine Learning</span>
+                    <span className='text-slate-700 text-lg font-bold pt-4'>Machine Learning</span>
                   </div>
-                  <div className='back flex shadow-lg px-6 py-2 items-center'>
+                  <div className='back flex shadow-lg px-6 py-2 justify-center items-center'>
                     {/* <div className='my-4 px-0 h-px bg-slate-900/10'></div> */}
-                    <p className='text-slate-600 text-wrap text-left'>Python, NumPy, Pandas, Xarray, Matplotlib, Scikit-learn, TensorFlow & Jupyter Notebook</p>
+                    <p className='text-slate-600 text-wrap text-center'>Python, NumPy, Pandas, Xarray, Matplotlib, Scikit-learn, TensorFlow & Jupyter Notebook</p>
                   </div>
                 </div>
                 <div className='tech-card flex flex-col rounded-lg min-h-[200px]'>
                   <div className='front shadow-lg flex flex-col w-full h-full justify-center items-center'>
                     <img src={computerSVG} className='w-[50px] h-[50px]'></img> 
-                    <span className='text-slate-700 text-lg font-bold text-left pt-4'>Web Development</span>
+                    <span className='text-slate-700 text-lg font-bold pt-4'>Web Development</span>
                   </div>
-                  <div className='back flex shadow-lg px-6 py-2 items-center'>
+                  <div className='back flex shadow-lg px-6 py-2 justify-center items-center'>
                     {/* <div className='my-4 px-0 h-px bg-slate-900/10'></div> */}
-                    <p className='text-slate-600 text-wrap text-left'>HTML, CSS, JavaScript, React, Tailwind & Flask</p>
+                    <p className='text-slate-600 text-wrap text-center'>HTML, CSS, JavaScript, React, Tailwind & Flask</p>
                   </div>
                 </div>
                 <div className='tech-card flex flex-col rounded-lg min-h-[200px]'>
                   <div className='front shadow-lg flex flex-col w-full h-full justify-center items-center'>
                     <img src={cogSVG} className='w-[50px] h-[50px]'></img> 
-                    <span className='text-slate-700 text-lg font-bold text-left pt-4'>APIs / Libraries</span>
+                    <span className='text-slate-700 text-lg font-bold pt-4'>APIs / Libraries</span>
                   </div>
-                  <div className='back flex shadow-lg px-6 py-2 items-center'>
+                  <div className='back flex shadow-lg px-6 py-2 justify-center items-center'>
                     {/* <div className='my-4 px-0 h-px bg-slate-900/10'></div> */}
-                    <p className='text-slate-600 text-wrap text-left'>Google Maps JavaScript API, AccuWeather API & and ApexCharts.js</p>
+                    <p className='text-slate-600 text-wrap text-center'>Google Maps JavaScript API, AccuWeather API & and ApexCharts.js</p>
                   </div>
                 </div>
               </div>
             </section>
-
           </div>
 
       </div>
