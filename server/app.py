@@ -1,55 +1,59 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-import os
+from models import load_models
 
-import numpy as np
-import xarray as xr
-import tensorflow as tf
-from tensorflow import keras
-
-from keras.models import Sequential
-from keras.layers import Input, LSTM, Dense
-
-input_length = 24
-variables = 1
-batch_size = 64
-lstm_cells = 36
-
-lstm = Sequential()
-lstm.add(Input(shape=(input_length, variables), batch_size=batch_size))
-lstm.add(LSTM(lstm_cells))
-lstm.add(Dense(units=36))
-lstm.add(Dense(units=1))
-
-# lstm.load_weights('./models/lstm_mongolia_weights.keras')
+REGION_MODEL_TUPLES = [('mongolia', 'lstm')]
+REGION_MODEL_DICT = {}
+LAST_24HR_DATA = []
 
 # app instance
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/welcome', methods=['GET'])
-def welcome():
-    message = 'Welcome to Scorched Earth 🔥🌎'
-    return jsonify({'message': message})
-
 @app.route('/predict', methods=['POST'])
 def predict():
     form = request.json
-    data = {}
-    if form['Location'] == 'Ulaanbaatar, Mongolia':
-        inputs = mongolia_test_dataset['t2m'][:24].data
-        if form['Model'] == 'LSTM':
-            inputs = inputs.reshape(1,7,1)
-            outputs = lstm.predict(inputs)
-            data = {
-                'expected': "%.2f" % mongolia_test_dataset['t2m'][24].data,
-                'predicted': ["%.2f" % output for output in outputs]
-            }
-    if form['Location'] == 'Austin, TX, USA':
-        if form['Model'] == 'LSTM':
-            pass
-    return jsonify(data)
+    is_valid = form_validator(form)
+    predictions = []
+    if is_valid:
+        region_name = form['region']
+        model_name = form['model']
+        model = REGION_MODEL_DICT[(region_name, model_name)]
+
+        # Currently placeholder data until weather api is integrated. Assumes the data is a NumPy array that has already been normalized.
+        predictions = model.get_predictions(LAST_24HR_DATA)
+        return jsonify({"Predictions": predictions})
+    else:
+        return jsonify({"Error": "Invalid form data."})
+
+def form_validator(form):
+    """ 
+        Checks that the form keys and values are valid inputs
+        @param form: the json form to validate
+
+        Returns the boolean is_valid
+    """
+
+    form_keys = ['region', 'model']
+    form_models = ['lstm']
+    form_regions = ['mongolia']
+
+    is_valid = True
+    for key, value in form.items():
+        if key not in form_keys:
+            valid = False
+            break
+        if key == 'region' and value not in form_regions:
+            valid = False
+            break
+        if key == 'model' and value not in form_models:
+            valid = False
+            break
+
+    return is_valid
 
 if __name__ == "__main__":
-	app.run()
+    REGION_MODEL_DICT = load_models(REGION_MODEL_TUPLES)
+
+    app.run()
