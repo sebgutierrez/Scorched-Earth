@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const ForecastForm = (props) => {
-  const [formLocation, setLocationData] = useState({
-    location: ''
+  const [formRegion, setRegionData] = useState({
+    region: ''
   });
 
   const [formModel, setModelData] = useState({
@@ -13,8 +13,8 @@ const ForecastForm = (props) => {
   const [expectedData, setExpectedData] = useState('');
 
   const handleInputChange = (e) => {
-    if(e.target.name == "location"){
-      setLocationData({
+    if(e.target.name == "region"){
+      setRegionData({
         [e.target.name]: e.target.value 
       });
     }
@@ -27,11 +27,11 @@ const ForecastForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(formLocation.location !== '' && formModel.model !== ''){
+    if(formRegion.region !== '' && formModel.model !== ''){
       fetch("http://localhost:5000/predict", {
         method: "POST",
         body: JSON.stringify({
-          "Location": formLocation.location,
+          "Region": formRegion.region,
           "Model": formModel.model
         }),
         headers: {
@@ -45,7 +45,7 @@ const ForecastForm = (props) => {
         setExpectedData(data['expected']);
       });
       props.setModelInfo({
-        location: formLocation.location,
+        region: formRegion.region,
         model: formModel.model
       });
     }
@@ -56,20 +56,20 @@ const ForecastForm = (props) => {
       <div className='flex w-full '>
         <form className="px-8 pt-8 w-full flex flex-col justify-between h-full" onSubmit={handleSubmit}>
           <div className="flex flex-col">
-            <label htmlFor="location">
-              <p className="text-black text-left">Location</p>
+            <label htmlFor="region">
+              <p className="text-black text-left">Region</p>
             </label>
             <select
               type="text"
               className="bg-white px-1 py-1 mb-4 w-full text-slate-500 hover:bg-gray-50 border-2 border-slate-200"
-              id="location"
-              name="location"
-              value={formLocation.location}
+              id="region"
+              name="region"
+              value={formRegion.region}
               onChange={handleInputChange}
             >
               <option value=""></option>
-              <option value="Austin, TX, USA">Austin, TX, USA</option>
-              {/* <option value="Ulaanbaatar, Mongolia">Ulaanbaatar, Mongolia</option> */}
+              <option value="texas">Austin, TX, USA</option>
+              {/* <option value="mongolia">Ulaanbaatar, Mongolia</option> */}
             </select>
             <label htmlFor="model">
               <p className="text-black text-left">Model</p>
@@ -83,11 +83,11 @@ const ForecastForm = (props) => {
               onChange={handleInputChange}
             >
               <option value=""></option>
-              <option value="LSTM">LSTM</option>
+              <option value="lstm">LSTM</option>
             </select>
           </div>
           {
-            (formLocation.location === '' || formModel.model === '') 
+            (formRegion.region === '' || formModel.model === '') 
                         ? 
                         (<button type="submit" className="bg-slate-100 border-slate-200 border-2 mb-6 rounded-md py-2 font-bold text-xl text-slate-400 cursor-not-allowed">
                           Forecast
