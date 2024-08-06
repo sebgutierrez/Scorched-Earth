@@ -10,7 +10,7 @@ Create a directory for the project
 
 Copy the project URL and clone it
 
-    git clone https://github.com/sebgutierrez/Scorched-Earth
+    $ git clone https://github.com/sebgutierrez/Scorched-Earth
 
 ## Running the website
 Move to the client directory
@@ -50,7 +50,7 @@ Run the server.py script
     
 Unlike with vite, you must restart the server for any changes to server.py to be reflected. Simply repeat the last step.
 
-To deactivate virtual environment
+To deactivate the virtual environment
 
     $ deactivate
 
