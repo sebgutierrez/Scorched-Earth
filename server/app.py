@@ -29,15 +29,15 @@ def predict():
 
 def form_validator(form):
     """ 
-        Checks that the form keys and values are valid inputs
+        Checks that the form keys and values are in the list of possible values
         @param form: the json form to validate
 
         Returns the boolean is_valid
     """
 
     form_keys = ['region', 'model']
-    form_models = ['lstm']
-    form_regions = ['mongolia']
+    form_models = ['LSTM']
+    form_regions = ['Ulaanbaatar, Mongolia']
 
     is_valid = True
     for key, value in form.items():
