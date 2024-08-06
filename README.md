@@ -8,9 +8,9 @@ Create a directory for the project
     $ mkdir weather-wizard
     $ cd weather-wizard
 
-Copy the project URL and clone it
+Copy the project URL by clicking the green button to clone it
 
-    $ git clone https://github.com/sebgutierrez/Scorched-Earth
+    $ git clone https://github.com/sebgutierrez/Scorched-Earth.git
 
 ## Running the website
 Move to the client directory
