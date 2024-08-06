@@ -31,8 +31,8 @@ const ForecastForm = (props) => {
       fetch("http://localhost:5000/predict", {
         method: "POST",
         body: JSON.stringify({
-          "Region": formRegion.region,
-          "Model": formModel.model
+          "region": formRegion.region,
+          "model": formModel.model
         }),
         headers: {
           "Content-Type": "application/json",
@@ -68,8 +68,8 @@ const ForecastForm = (props) => {
               onChange={handleInputChange}
             >
               <option value=""></option>
-              <option value="texas">Austin, TX, USA</option>
-              {/* <option value="mongolia">Ulaanbaatar, Mongolia</option> */}
+              {/* <option value="Austin, TX, USA">Austin, TX, USA</option> */}
+              <option value="Ulaanbaatar, Mongolia">Ulaanbaatar, Mongolia</option>
             </select>
             <label htmlFor="model">
               <p className="text-black text-left">Model</p>

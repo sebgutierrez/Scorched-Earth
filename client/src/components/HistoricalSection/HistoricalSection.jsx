@@ -8,8 +8,8 @@ const HistoricalSection = (props) => {
 		<div className="flex flex-col w-full mb-2 mt-2 overflow-y-auto">
 			<div className="flex w-full">
 				<div className="flex flex-col sm:flex-row sm:items-end justify-start sm:justify-between sm:align-bottom w-full">
-					<h2 className='text-slate-600 font-bold text-left text-xl lg:text-2xl'>Daily Average Temperature</h2>
-					<span className='text-slate-500 text-left text-md'>{props.modelInfo.location}</span>
+					<h2 className='text-slate-600 font-bold text-left text-xl lg:text-2xl'>Past Hourly Temperature</h2>
+					<span className='text-slate-500 text-left text-md'>{props.modelInfo.region}</span>
 				</div>
 			</div>
 			<div className='my-2 px-0 h-px bg-slate-900/10'></div>

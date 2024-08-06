@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 
 import '../Home/Home.css';
 import { Link } from "react-router-dom";
+import cloud from "../../assets/cloud.svg"
 
 function Home(){
     return (
@@ -12,7 +13,8 @@ function Home(){
             </div> */}
             <div className="project-content">
                 <span className='weather-wizard'>Weather Wizard</span>
-                <img src="./src/assets/cloud.svg" alt="cloud" />
+                {/* <img src="../assets/cloud.svg" alt="cloud" /> */}
+                <img src={cloud}></img>
             </div>
             <div className="project-nav">
                 <ul>

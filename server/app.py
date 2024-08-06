@@ -4,6 +4,8 @@ from flask_cors import CORS
 from models import load_models
 
 REGION_MODEL_TUPLES = [('mongolia', 'lstm')]
+
+# To be changed with SQLite db is set up
 REGION_MODEL_DICT = {}
 LAST_24HR_DATA = []
 
