@@ -6,10 +6,10 @@ class Model:
 		self.region_name = region_name
 		self.model_name = model_name
 
-	def get_name(self):
+	def get_model_name(self):
 		return self.model_name
 	
-	def get_region(self):
+	def get_region_name(self):
 		""" Returns the name of the region the model is trained on"""
 		return self.region_name
 
