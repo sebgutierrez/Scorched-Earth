@@ -1,5 +1,7 @@
-from tensorflow import keras
 import os
+
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+from tensorflow import keras
 
 class ModelCollection:
 	"""Manages the models in a dictionary with the key-value pair: (region_name, model_name): keras_model"""
@@ -19,15 +21,16 @@ class ModelCollection:
 		"""
 
 		dir_path = os.path.join(os.getcwd(), "models")
-
 		# os.scandir(): returns an iterator of os.DirEntry objects (i.e. files and directories). Use of the "with" context manager is recommended to explicitly close and free resources
 		with os.scandir(path=dir_path) as iterator:
 			# iterator returns string
 			for file in iterator:
 				file_name = file.name
 				if file_name.endswith(".keras"):
+					k_model = []
+					file_path = os.path.join(dir_path, file_name)
 					try:
-						k_model = keras.models.load_model(path=os.path.join(dir_path, file_name))
+						k_model = keras.models.load_model(file_path)
 					except Exception:
 						print(f"Error in load_models(): Failed to load the {file_name} model!")
 

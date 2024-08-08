@@ -14,7 +14,9 @@ CORS(app)
 @app.route('/predict', methods=['POST'])
 def predict():
     predictions = dict()
-    form = Form(request.json)
+    form = request.json
+    print(form)
+    form = Form(form)
     if form.is_validated():
         region_model_tuple = form.to_short_hand()
         model = model_collection.get_model(region_name=region_model_tuple[0], model_name=region_model_tuple[1])
