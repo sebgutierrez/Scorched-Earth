@@ -1,12 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from models import load_models
-
-REGION_MODEL_TUPLES = [('mongolia', 'lstm')]
+from models import ModelCollection
 
 # To be changed with SQLite db is set up
-REGION_MODEL_DICT = {}
 LAST_24HR_DATA = []
 
 # app instance
@@ -21,7 +18,7 @@ def predict():
     if is_valid:
         region_name = form['region']
         model_name = form['model']
-        model = REGION_MODEL_DICT[(region_name, model_name)]
+        model = model_collection.get_model([(region_name, model_name)])
 
         # Currently placeholder data until weather api is integrated. Assumes the data is a NumPy array that has already been normalized.
         predictions = model.get_predictions(LAST_24HR_DATA)
@@ -38,8 +35,8 @@ def form_validator(form):
     """
 
     form_keys = ['region', 'model']
-    form_models = ['LSTM']
-    form_regions = ['Ulaanbaatar, Mongolia']
+    form_models = ['lstm']
+    form_regions = ['mongolia']
 
     is_valid = True
     for key, value in form.items():
@@ -56,6 +53,7 @@ def form_validator(form):
     return is_valid
 
 if __name__ == "__main__":
-    REGION_MODEL_DICT = load_models(REGION_MODEL_TUPLES)
+    model_collection = ModelCollection()
+    model_collection.load_models()
 
     app.run()
