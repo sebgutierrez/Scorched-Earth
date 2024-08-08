@@ -2,41 +2,37 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const ForecastForm = (props) => {
   const [formRegion, setRegionData] = useState({
-    fullRegionName: '',
-    shortRegionName: ''
+    region: ''
   });
 
   const [formModel, setModelData] = useState({
-    fullModelName: '',
-    shortModelName: ''
+    model: ''
   });
 
-  const [predictedData, setPredictedData] = useState('');
-  const [expectedData, setExpectedData] = useState('');
+  // const [predictedData, setPredictedData] = useState('');
+  // const [expectedData, setExpectedData] = useState('');
 
   const handleInputChange = (e) => {
     if(e.target.name == "region"){
       setRegionData({
-        fullRegionName: e.target.value,
-        shortRegionName: e.target.name
+        region: e.target.value
       });
     }
     if(e.target.name == "model"){
       setModelData({
-        fullModelName: e.target.value,
-        shortModelName: e.target.name
+        model: e.target.value
       });
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(formRegion.fullRegionName !== '' && formModel.fullModelName !== ''){
+    if(formRegion.region !== '' && formModel.model !== ''){
       fetch("http://localhost:5000/predict", {
         method: "POST",
         body: JSON.stringify({
-          "region": formRegion.shortRegionName,
-          "model": formModel.shortModelName
+          "region": formRegion.region,
+          "model": formModel.model
         }),
         headers: {
           "Content-Type": "application/json",
@@ -49,8 +45,8 @@ const ForecastForm = (props) => {
         setExpectedData(data.get('expected'));
       });
       props.setModelInfo({
-        regionName: formRegion.fullRegionName,
-        modelName: formModel.fullModelName
+        region: formRegion.region,
+        model: formModel.model
       });
     }
   };
@@ -68,12 +64,12 @@ const ForecastForm = (props) => {
               className="bg-white px-1 py-1 mb-4 w-full text-slate-500 hover:bg-gray-50 border-2 border-slate-200"
               id="region"
               name="region"
-              value={formRegion.fullRegionName}
+              value={formRegion.region}
               onChange={handleInputChange}
             >
               <option value=""></option>
               {/* <option value="Austin, TX, USA">Austin, TX, USA</option> */}
-              <option value="Ulaanbaatar, Mongolia" name="mongolia">Ulaanbaatar, Mongolia</option>
+              <option value="Ulaanbaatar, Mongolia">Ulaanbaatar, Mongolia</option>
             </select>
             <label htmlFor="model">
               <p className="text-black text-left">Model</p>
@@ -83,15 +79,15 @@ const ForecastForm = (props) => {
               className="bg-white px-1 py-1 w-full text-slate-500 hover:bg-gray-50 border-2 border-slate-200"
               id="model"
               name="model"
-              value={formModel.fullModelName}
+              value={formModel.model}
               onChange={handleInputChange}
             >
               <option value=""></option>
-              <option value="Long Short-Term Memory" name="lstm">Long Short-Term Memory (LSTM)</option>
+              <option value="Long Short-Term Memory (LSTM)">Long Short-Term Memory (LSTM)</option>
             </select>
           </div>
           {
-            (formRegion.fullRegionName === '' || formModel.fullModelName === '') 
+            (formRegion.region === '' || formModel.model === '') 
                         ? 
                         (<button type="submit" className="bg-slate-100 border-slate-200 border-2 mb-6 rounded-md py-2 font-bold text-xl text-slate-400 cursor-not-allowed">
                           Forecast
