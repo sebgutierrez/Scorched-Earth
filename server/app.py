@@ -16,8 +16,8 @@ def predict():
     is_valid = form_validator(form)
     predictions = []
     if is_valid:
-        region_name = form['region']
-        model_name = form['model']
+        region_name = form.get('region')
+        model_name = form.get('model')
         model = model_collection.get_model([(region_name, model_name)])
 
         # Currently placeholder data until weather api is integrated. Assumes the data is a NumPy array that has already been normalized.
