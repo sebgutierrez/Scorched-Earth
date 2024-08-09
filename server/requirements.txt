@@ -1,9 +1,6 @@
-Flask
-Flask-Cors
-ipykernel
-matplotlib
-scikit-learn
-seaborn
-numpy
-pandas
-tensorflow
+Flask==3.0.3
+Flask-Cors==4.0.1
+keras==3.4.1
+numpy==1.26.4
+requests==2.32.3
+tensorflow==2.17.0

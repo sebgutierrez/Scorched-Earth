@@ -18,6 +18,9 @@ class ModelCollection:
 	def get_model(self, region_name, model_name):
 		return self.models[(region_name, model_name)]
 	
+	def get_keys(self):
+		return self.models.keys()
+	
 	def load_models(self):
 		"""
 			Loads all .keras files in the "server/models/" directory and stores them in a dictionary, models, that has the key-value pairs: (region_name, model_name): keras_model 

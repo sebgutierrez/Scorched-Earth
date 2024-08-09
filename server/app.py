@@ -4,6 +4,7 @@ import logging
 
 from models import ModelCollection
 from form import Form
+from accuweather import request_weather_data
 
 # To be changed with SQLite db is set up
 LAST_24HR_DATA = []
@@ -34,4 +35,5 @@ if __name__ == "__main__":
     model_collection = ModelCollection()
     model_collection.load_models()
 
+    request_weather_data(model_collection)
     app.run()
