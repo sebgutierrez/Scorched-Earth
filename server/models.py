@@ -1,7 +1,10 @@
 import os
+import logging
 
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 from tensorflow import keras
+
+logger = logging.getLogger(__name__)
 
 class ModelCollection:
 	"""Manages the models in a dictionary with the key-value pair: (region_name, model_name): keras_model"""
@@ -20,6 +23,8 @@ class ModelCollection:
 			Loads all .keras files in the "server/models/" directory and stores them in a dictionary, models, that has the key-value pairs: (region_name, model_name): keras_model 
 		"""
 
+		logger.info("Loading models...")
+		
 		dir_path = os.path.join(os.getcwd(), "models")
 		# os.scandir(): returns an iterator of os.DirEntry objects (i.e. files and directories). Use of the "with" context manager is recommended to explicitly close and free resources
 		with os.scandir(path=dir_path) as iterator:
@@ -32,7 +37,7 @@ class ModelCollection:
 					try:
 						k_model = keras.models.load_model(file_path)
 					except Exception:
-						print(f"Error in load_models(): Failed to load the {file_name} model!")
+						logger.exception(f"Error in load_models(): Failed to load the {file_name} model!")
 
 					# I'm using the file naming convention "{region_name}_{model_name}.keras", so this should return: [region_name, model_name]
 					region_model_pair = file_name.rstrip(".keras").split("_")
@@ -42,6 +47,8 @@ class ModelCollection:
 
 					model = Model(region_name, model_name, k_model)
 					self.__add_model(model)
+
+		logger.info("Finished loading models.")
 
 class Model():
 
