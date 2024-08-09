@@ -34,14 +34,14 @@ class Form:
 			
 		return is_valid
 	
-	def to_short_hand(cls, self):
+	def get_region_and_model_name(cls, self):
 		""" 
 			Translate region and model names to short hand to be consistent with the keras model file naming convention.
 
-			Returns a tuple with the name of the shorthanded region and model name
+			Returns the name of the shorthanded region and model name
 		"""
 
 		region_name = cls.region_short_hand[self.form.get('region')]
 		model_name = cls.model_short_hand[self.form.get('model')]
 
-		return (region_name, model_name)
+		return region_name, model_name

@@ -16,11 +16,11 @@ CORS(app)
 @app.route('/predict', methods=['POST'])
 def predict():
     predictions = dict()
-    form = request.json
-    form = Form(form)
+    form_json = request.json
+    form = Form(form_json)
     if form.is_validated():
-        region_model_tuple = form.to_short_hand()
-        model = model_collection.get_model(region_name=region_model_tuple[0], model_name=region_model_tuple[1])
+        region_name, model_name = form.get_region_and_model_name()
+        model = model_collection.get_model(region_name, model_name)
 
         # Currently placeholder data until weather api is integrated. Assumes the data is a NumPy array that has already been normalized.
         predictions = model.get_predictions(LAST_24HR_DATA)
